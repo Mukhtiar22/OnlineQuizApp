@@ -310,7 +310,24 @@
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-}            
+}       
+.logout-button{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}     
+
+.logout-button:hover {
+    background-color: #d32f2f;
+}
 
 /* quiz list style: */
 .quizlist-container {

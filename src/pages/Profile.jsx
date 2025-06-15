@@ -37,7 +37,7 @@ export default function Profile() {
         </p>
         {/* Add more fields like total quizzes taken, score etc., if needed */}
       </div>
-      <button
+      <button className="logout-button"
         onClick={() => {
           localStorage.removeItem("isAuthenticated");
           localStorage.removeItem("currentUser");

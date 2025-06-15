@@ -6,6 +6,9 @@ export default function Home() {
     <div className="home-container">
       <h1 className="home-title">Welcome to QuizMaster</h1>
       <p className="home-subtitle">Your gateway to fun and challenging quizzes</p>
+      <button>
+        <a href="/quizzes" className="home-button-link">Start Quizzing Now!</a>
+      </button>
     </div>
   );
 }
