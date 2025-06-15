@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import './login.css';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
