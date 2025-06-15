@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './login.css';
 
@@ -16,7 +16,7 @@ const questions = [
 ];
 
 export default function TakeQuiz() {
-  const { id } = useParams(); // Get quiz ID from route
+  const { id } = useParams(); // Get quiz ID from URL
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState('');
   const [score, setScore] = useState(0);
@@ -32,13 +32,30 @@ export default function TakeQuiz() {
       setSelected('');
     } else {
       setShowScore(true);
+      saveResult(score + (selected === questions[current].answer ? 1 : 0));
     }
+  };
+
+  const saveResult = (finalScore) => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (!currentUser) return;
+
+    const attempts = JSON.parse(localStorage.getItem("quizAttempts")) || [];
+
+    const newAttempt = {
+      email: currentUser.email,
+      quizTitle: `Quiz ID: ${id}`, // You can enhance this to use actual title
+      score: finalScore,
+      total: questions.length,
+      timestamp: new Date().toLocaleString()
+    };
+
+    localStorage.setItem("quizAttempts", JSON.stringify([...attempts, newAttempt]));
   };
 
   return (
     <div className="quiz-container">
       <h2 className="quiz-id-title">Quiz ID: {id}</h2>
-
       <div className="quiz-card">
         {showScore ? (
           <div className="score-section">

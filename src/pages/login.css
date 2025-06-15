@@ -328,6 +328,59 @@
 .logout-button:hover {
     background-color: #d32f2f;
 }
+.profile-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.profile-card p {
+  margin: 8px 0;
+}
+
+.attempt-history-title {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.attempts-list {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.attempt-card {
+  background: #f0f4ff;
+  padding: 15px;
+  border-left: 5px solid #4f46e5;
+  border-radius: 6px;
+}
+
+.logout-button {
+  margin-top: 30px;
+  background-color: #e11d48;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #be123c;
+}
+
+.no-attempts {
+  margin-top: 10px;
+  font-style: italic;
+  color: gray;
+}
+
 
 /* quiz list style: */
 .quizlist-container {
