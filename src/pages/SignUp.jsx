@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './login.css'; // Importing custom CSS
 
 export default function Signup() {
@@ -23,10 +23,8 @@ export default function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Save signup data in localStorage
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Check for duplicate email
     const emailExists = existingUsers.some(
       (user) => user.email === formData.email
     );
@@ -36,12 +34,11 @@ export default function Signup() {
       return;
     }
 
-    // Add new user to array and save back to localStorage
     existingUsers.push(formData);
     localStorage.setItem("users", JSON.stringify(existingUsers));
 
     alert(`Welcome, ${formData.firstName}!`);
-    navigate('/login'); // Redirect to login page after signup
+    navigate('/login');
   };
 
   return (
@@ -106,6 +103,11 @@ export default function Signup() {
         <button type="submit" className="signup-button">
           Sign Up
         </button>
+
+        {/* ✅ Login Button */}
+        <p className="redirect-login">
+          Already have an account? <Link to="/login">Login here</Link>
+        </p>
       </form>
     </div>
   );
