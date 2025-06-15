@@ -155,3 +155,21 @@
   font-size: 14px;
   margin-top: 10px;
 }
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem; /* equivalent to mt-20 in Tailwind */
+}
+
+.home-title {
+  font-size: 2.25rem; /* equivalent to text-4xl */
+  font-weight: bold;
+  margin-bottom: 1rem; /* equivalent to mb-4 */
+}
+
+.home-subtitle {
+  font-size: 1.125rem; /* equivalent to text-lg */
+  color: #4a5568; /* Tailwind's text-gray-700 */
+}

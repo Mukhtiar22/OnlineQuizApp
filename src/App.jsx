@@ -18,6 +18,7 @@ function AppLayout() {
     location.pathname === '/forgot-password';
 
   return (
+    <>
     <div className="min-h-screen bg-gray-100 text-gray-900 flex flex-col">
       {!hideNavAndFooter && <Navbar />}
       <div className="flex-grow">
@@ -32,6 +33,7 @@ function AppLayout() {
       </div>
       {!hideNavAndFooter && <Footer />}
     </div>
+    </>
   );
 }
 
