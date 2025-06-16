@@ -25,7 +25,7 @@ function AppLayout() {
     <>
       <div className="app-container">
         {!hideNavAndFooter && <Navbar />}
-        <div className="">
+        <div className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -33,9 +33,7 @@ function AppLayout() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/quizzes" element={<QuizList />} />
             <Route path="/quiz/:id" element={<TakeQuiz />} />
-
             <Route path="/profile" element={<Profile />} />
-
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
