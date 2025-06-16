@@ -1,0 +1,49 @@
+/* Reset some default spacing */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html, body, #root {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa; /* subtle background */
+  color: #333;
+
+}
+
+
+
+/* Centered form card */
+.auth-form {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Optional fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-form {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Responsive padding */
+@media (max-width: 768px) {
+  .app-container > div {
+    padding: 15px;
+  }
+
+  .auth-form {
+    padding: 20px;
+  }
+}

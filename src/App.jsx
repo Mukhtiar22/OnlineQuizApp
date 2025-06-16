@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import TakeQuiz from "./pages/TakeQuiz";
+import "./App.css"; // Import your global styles
 
 function AppLayout() {
   const location = useLocation();
@@ -22,9 +23,9 @@ function AppLayout() {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-100 text-gray-900 flex flex-col">
+      <div className="app-container">
         {!hideNavAndFooter && <Navbar />}
-        <div className="flex-grow">
+        <div className="">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />

@@ -10,18 +10,14 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const users = JSON.parse(localStorage.getItem('users')) || [];
-
     const matchedUser = users.find(
       (user) => user.email === email && user.password === password
     );
 
     if (matchedUser) {
-      // Set session or authentication flag
       localStorage.setItem('isAuthenticated', 'true');
       localStorage.setItem('currentUser', JSON.stringify(matchedUser));
-
       setError('');
       navigate('/');
     } else {
@@ -30,39 +26,41 @@ export default function Login() {
   };
 
   return (
-    <div className="login-container">
-      <h2 className="login-title">Login</h2>
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className="form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
+    <div className="login-wrapper">
+      <div className="login-container">
+        <h2 className="login-title">Login</h2>
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-        {error && <p className="error-message">{error}</p>}
+          {error && <p className="error-message">{error}</p>}
 
-        <button type="submit" className="login-button">
-          Login
-        </button>
+          <button type="submit" className="login-button">
+            Login
+          </button>
 
-        <div className="login-links">
-          <Link to="/forgot-password">Forgot Password?</Link> | 
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      </form>
+          <div className="login-links">
+            <Link to="/forgot-password">Forgot Password?</Link> | 
+            <Link to="/signup">Sign Up</Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

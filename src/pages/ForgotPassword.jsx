@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './login.css';
+import { useNavigate, Link } from 'react-router-dom';
+import './login.css'; // Updated import to match the CSS file
+
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -11,7 +12,6 @@ export default function ForgotPassword() {
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     const users = JSON.parse(localStorage.getItem('users')) || [];
-
     const userExists = users.find((user) => user.email === email);
 
     if (!userExists) {
@@ -19,8 +19,7 @@ export default function ForgotPassword() {
       return;
     }
 
-    // Move to next step
-    setStep(2);
+    setStep(2); // Go to next step
   };
 
   const handleResetPassword = (e) => {
@@ -37,40 +36,46 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="login-container">
-      <h2 className="login-title">Forgot Password</h2>
+    <div className="forgot-container">
 
       {step === 1 && (
-        <form onSubmit={handleEmailSubmit} className="login-form">
-          <div className="form-group">
+        <form onSubmit={handleEmailSubmit} className="forgot-form">
+                <h2 className="forgot-title">Forgot Password</h2>
+
+          <div className="forgot-form-group">
             <label>Email</label>
-            <input 
+            <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)} 
-              required 
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
-          <button type="submit" className="login-button">
+          <button type="submit" className="forgot-button">
             Verify Email
           </button>
+               <p className="redirect-login">
+          Back to Login form <Link to="/login">Login here</Link>
+        </p>
+ 
         </form>
       )}
 
       {step === 2 && (
-        <form onSubmit={handleResetPassword} className="login-form">
-          <div className="form-group">
+        <form onSubmit={handleResetPassword} className="forgot-form">
+          <div className="forgot-form-group">
             <label>New Password</label>
-            <input 
+            <input
               type="password"
               value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)} 
-              required 
+              onChange={(e) => setNewPassword(e.target.value)}
+              required
             />
           </div>
-          <button type="submit" className="login-button">
+          <button type="submit" className="forgot-button">
             Reset Password
           </button>
+
         </form>
       )}
     </div>
