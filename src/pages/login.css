@@ -191,6 +191,11 @@ input {
 .signup-button:hover {
   background-color: #4338ca;
 }
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
 .error-message {
   color: red;
   font-size: 14px;
