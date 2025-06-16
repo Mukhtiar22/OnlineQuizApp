@@ -259,6 +259,27 @@
     font-size: 24px;
   }
 }
+
+.home-button{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff9800;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.home-button:hover {
+  background-color: #e0a70b;
+  transform: translateY(-2px);
+}
+.home-button-link{
+  text-decoration: none;
+  color: inherit;
+
+}
+
 /* styling Profile Page*/
 .profile-container {
   max-width: 500px;
