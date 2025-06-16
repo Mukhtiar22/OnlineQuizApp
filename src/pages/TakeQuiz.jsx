@@ -1,26 +1,18 @@
+
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import quizData from '../data/quizData';
 import './login.css';
 
-const questions = [
-  {
-    question: 'What is the capital of France?',
-    options: ['Paris', 'London', 'Berlin', 'Madrid'],
-    answer: 'Paris',
-  },
-  {
-    question: 'Which language is used for React?',
-    options: ['Python', 'Java', 'JavaScript', 'C++'],
-    answer: 'JavaScript',
-  },
-];
-
 export default function TakeQuiz() {
-  const { id } = useParams(); // Get quiz ID from URL
+  const { id } = useParams();
+  const quiz = quizData[id];
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState('');
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
+
+  const questions = quiz?.questions || [];
 
   const handleNext = () => {
     if (selected === questions[current].answer) {
@@ -44,7 +36,7 @@ export default function TakeQuiz() {
 
     const newAttempt = {
       email: currentUser.email,
-      quizTitle: `Quiz ID: ${id}`, // You can enhance this to use actual title
+      quizTitle: quiz.title,
       score: finalScore,
       total: questions.length,
       timestamp: new Date().toLocaleString()
@@ -53,9 +45,11 @@ export default function TakeQuiz() {
     localStorage.setItem("quizAttempts", JSON.stringify([...attempts, newAttempt]));
   };
 
+  if (!quiz) return <p>Quiz not found.</p>;
+
   return (
     <div className="quiz-container">
-      <h2 className="quiz-id-title">Quiz ID: {id}</h2>
+      <h2 className="quiz-id-title">{quiz.title}</h2>
       <div className="quiz-card">
         {showScore ? (
           <div className="score-section">
