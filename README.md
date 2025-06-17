@@ -11,3 +11,89 @@ Currently, two official plugins are available:
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 # OnlineQuizApp
+
+# 🧠 React Quiz App
+
+A modern and responsive quiz application built using **React** that allows users to register, login, take quizzes based on categories, and view their scores.
+
+---
+
+## 🚀 Features
+
+- 👤 User Authentication (Signup/Login/Forgot Password)
+- 📝 Dynamic Quiz System by Categories
+- 🧠 Score Calculation with Result Feedback
+- 💾 User Quiz History stored via `localStorage`
+- 📂 Category-based Quiz Selection
+- 🔐 Form Validation using `Yup` and `Formik`
+- 💡 Conditional Rendering (Steps, States)
+- 📱 Fully Responsive Design
+
+---
+
+## 🛠️ Tech Stack
+
+| Category     | Technologies                     |
+|--------------|----------------------------------|
+| Frontend     | React (Vite), React Router DOM   |
+| State Mgmt   | React `useState`, `useEffect`    |
+| Styling      | Custom CSS                       |
+| Validation   | Formik + Yup                     |
+| Storage      | `localStorage`                   |
+
+---
+
+## 📁 Folder Structure
+/src
+├── components/
+│ ├── Signup.jsx
+│ ├── Login.jsx
+│ ├── ForgotPassword.jsx
+│ ├── QuizList.jsx
+│ └── TakeQuiz.jsx
+│
+├── data/
+│ └── quizzes.js # contains categorized quiz questions
+│
+├── App.jsx
+├── main.jsx
+└── login.css # shared styles
+
+
+
+---
+
+## 🧩 Key Libraries Used
+
+- [`react-router-dom`](https://reactrouter.com/) – Routing
+- [`formik`](https://formik.org/) – Form handling
+- [`yup`](https://github.com/jquense/yup) – Schema validation
+
+---
+
+## 🧪 How to Run This App
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/yourusername/react-quiz-app.git
+cd react-quiz-app
+
+npm install
+
+npm run dev
+
+
+📝 Sample Credentials for Testing
+Email	Password
+test@example.com	Test@1234
+
+
+📦 Data Persistence
+All user data, including:
+
+Registration
+Login Sessions
+Quiz Attempts
+are stored in localStorage to simulate backend-like behavior in a frontend-only project.
+
