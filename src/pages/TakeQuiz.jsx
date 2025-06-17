@@ -1,14 +1,13 @@
-
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import quizData from '../data/quizData';
-import './login.css';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import quizData from "../data/quizData";
+import "./login.css";
 
 export default function TakeQuiz() {
   const { id } = useParams();
   const quiz = quizData[id];
   const [current, setCurrent] = useState(0);
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState("");
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
 
@@ -21,10 +20,16 @@ export default function TakeQuiz() {
     const next = current + 1;
     if (next < questions.length) {
       setCurrent(next);
-      setSelected('');
+      setSelected("");
     } else {
       setShowScore(true);
       saveResult(score + (selected === questions[current].answer ? 1 : 0));
+    }
+  };
+  const handlePrevious = () => {
+    if (current > 0) {
+      setCurrent((prev) => prev - 1);
+      setSelected(""); // Optional: clear selected when going back
     }
   };
 
@@ -39,10 +44,13 @@ export default function TakeQuiz() {
       quizTitle: quiz.title,
       score: finalScore,
       total: questions.length,
-      timestamp: new Date().toLocaleString()
+      timestamp: new Date().toLocaleString(),
     };
 
-    localStorage.setItem("quizAttempts", JSON.stringify([...attempts, newAttempt]));
+    localStorage.setItem(
+      "quizAttempts",
+      JSON.stringify([...attempts, newAttempt])
+    );
   };
 
   if (!quiz) return <p>Quiz not found.</p>;
@@ -54,14 +62,19 @@ export default function TakeQuiz() {
         {showScore ? (
           <div className="score-section">
             <h2>Your Score</h2>
-            <p>{score} / {questions.length}</p>
+            <p>
+              {score} / {questions.length}
+            </p>
           </div>
         ) : (
           <>
             <h3 className="question">{questions[current].question}</h3>
             <div className="options">
               {questions[current].options.map((option, idx) => (
-                <label key={idx} className={`option ${selected === option ? 'selected' : ''}`}>
+                <label
+                  key={idx}
+                  className={`option ${selected === option ? "selected" : ""}`}
+                >
                   <input
                     type="radio"
                     name="option"
@@ -73,13 +86,23 @@ export default function TakeQuiz() {
                 </label>
               ))}
             </div>
-            <button
-              onClick={handleNext}
-              disabled={!selected}
-              className="next-button"
-            >
-              {current < questions.length - 1 ? 'Next' : 'Submit'}
-            </button>
+            <div className="button-group">
+              <button
+                onClick={handlePrevious}
+                disabled={current === 0}
+                className="prev-button"
+              >
+                Previous
+              </button>
+
+              <button
+                onClick={handleNext}
+                disabled={!selected}
+                className="next-button"
+              >
+                {current < questions.length - 1 ? "Next" : "Submit"}
+              </button>
+            </div>
           </>
         )}
       </div>
