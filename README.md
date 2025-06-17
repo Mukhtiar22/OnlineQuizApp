@@ -75,5 +75,6 @@ npm run dev
 
 - [@Mukhtiar22](https://www.github.com/Mukhtiar22)
 
-
+Mukhtiar Ali Soomro
+Computer Science Student at Sukkur IBA University
 
