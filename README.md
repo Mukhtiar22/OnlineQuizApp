@@ -84,16 +84,3 @@ npm install
 npm run dev
 
 
-📝 Sample Credentials for Testing
-Email	Password
-test@example.com	Test@1234
-
-
-📦 Data Persistence
-All user data, including:
-
-Registration
-Login Sessions
-Quiz Attempts
-are stored in localStorage to simulate backend-like behavior in a frontend-only project.
-
