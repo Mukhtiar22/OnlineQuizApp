@@ -43,21 +43,6 @@ A modern and responsive quiz application built using **React** that allows users
 
 ---
 
-## 📁 Folder Structure
-/src
-├── components/
-│ ├── Signup.jsx
-│ ├── Login.jsx
-│ ├── ForgotPassword.jsx
-│ ├── QuizList.jsx
-│ └── TakeQuiz.jsx
-│
-├── data/
-│ └── quizzes.js # contains categorized quiz questions
-│
-├── App.jsx
-├── main.jsx
-└── login.css # shared styles
 
 
 
