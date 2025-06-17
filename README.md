@@ -68,4 +68,12 @@ npm install
 
 npm run dev
 
+```
+
+
+## Authors
+
+- [@Mukhtiar22](https://www.github.com/Mukhtiar22)
+
+
 
